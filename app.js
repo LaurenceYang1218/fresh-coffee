@@ -30,17 +30,9 @@ function handleText(message, replyToken) {
             originalContentUrl: 'https://imgur.dcard.tw/D7K3R0R.jpg',
             previewImageUrl: 'https://imgur.dcard.tw/D7K3R0R.jpg'
         })
-    }    
-    //sticker message
-    if(message.text === '好累喔'){
-        return client.replyMessage(replyToken, {
-            type: 'sticker',
-            packageId: '6362',
-            stickerId: '11087930' 
-        })
-    }    
+    }      
     //location message
-    if(message.text === '交大在哪裡？'){
+    if(message.text === '門市地址'){
         return client.replyMessage(replyToken, {
             type: 'location',
             title: '國立陽明交通大學',
@@ -50,134 +42,181 @@ function handleText(message, replyToken) {
         })
     }
     //flex message
-    if(message.text === '來杯咖啡'){
+    if(message.text === '菜單查詢'){
         return client.replyMessage(replyToken, {
             type: 'flex',
-            altText: 'This is a flex message',
+            altText: 'menu',
             contents: {
                 "type": "bubble",
-                "size": "mega",
                 "hero": {
-                    "type": "image",
-                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
-                    "size": "full",
-                    "offsetTop": "none",
-                    "offsetBottom": "none",
-                    "offsetStart": "none",
-                    "offsetEnd": "none",
-                    "margin": "none",
-                    "position": "relative",
-                    "aspectMode": "cover",
-                    "action": {
-                        "type": "uri",
-                        "label": "action",
-                        "uri": "http://linecorp.com/"
+                  "type": "image",
+                  "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_1_cafe.png",
+                  "size": "full",
+                  "aspectRatio": "20:13",
+                  "aspectMode": "cover",
+                  "action": {
+                    "type": "uri",
+                    "uri": "http://linecorp.com/"
+                  }
+                },
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "FRESH Cafe",
+                      "weight": "bold",
+                      "size": "xl"
                     },
-                    "flex": 1
-                },
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
+                    {
+                      "type": "text",
+                      "text": "請選擇您需要的咖啡："
+                    },
+                    {
+                      "type": "box",
+                      "layout": "baseline",
+                      "margin": "md",
+                      "contents": [
                         {
-                            "type": "text",
-                            "text": "Coffee Shop",
-                            "size": "xxl"
+                          "type": "icon",
+                          "size": "sm",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
                         },
                         {
-                            "type": "text",
-                            "text": "Please Select:",
-                            "size": "lg"
+                          "type": "icon",
+                          "size": "sm",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                        },
+                        {
+                          "type": "icon",
+                          "size": "sm",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                        },
+                        {
+                          "type": "icon",
+                          "size": "sm",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png"
+                        },
+                        {
+                          "type": "icon",
+                          "size": "sm",
+                          "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png"
+                        },
+                        {
+                          "type": "text",
+                          "text": "4.0",
+                          "size": "sm",
+                          "color": "#999999",
+                          "margin": "md",
+                          "flex": 0
                         }
-                    ],
-                    "position": "relative"
+                      ]
+                    },
+                    {
+                      "type": "box",
+                      "layout": "vertical",
+                      "margin": "lg",
+                      "spacing": "sm",
+                      "contents": [
+                        {
+                          "type": "box",
+                          "layout": "baseline",
+                          "spacing": "sm",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "text": "Place",
+                              "color": "#aaaaaa",
+                              "size": "sm",
+                              "flex": 1
+                            },
+                            {
+                              "type": "text",
+                              "text": "新竹市東區大學路1001號",
+                              "wrap": true,
+                              "color": "#666666",
+                              "size": "sm",
+                              "flex": 5
+                            }
+                          ]
+                        },
+                        {
+                          "type": "box",
+                          "layout": "baseline",
+                          "spacing": "sm",
+                          "contents": [
+                            {
+                              "type": "text",
+                              "text": "Time",
+                              "color": "#aaaaaa",
+                              "size": "sm",
+                              "flex": 1
+                            },
+                            {
+                              "type": "text",
+                              "text": "10:00 - 21:00",
+                              "wrap": true,
+                              "color": "#666666",
+                              "size": "sm",
+                              "flex": 5
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
                 },
                 "footer": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "message",
-                                "label": "Expresso",
-                                "text": "Expresso"
-                            }
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "message",
-                                "label": "Americano",
-                                "text": "Americano"
-                            }
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "message",
-                                "label": "Cappuccino",
-                                "text": "Cappuccino"
-                            }
-                        }
-                    ]
+                  "type": "box",
+                  "layout": "vertical",
+                  "spacing": "sm",
+                  "contents": [
+                    {
+                      "type": "button",
+                      "height": "sm",
+                      "action": {
+                        "type": "postback",
+                        "label": "濃縮咖啡",
+                        "data": "type=coffee&order=espresso",
+                        "displayText": "濃縮咖啡"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "height": "sm",
+                      "action": {
+                        "type": "postback",
+                        "label": "美式咖啡",
+                        "data": "type=coffee&order=americano",
+                        "displayText": "美式咖啡"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "卡布奇諾",
+                        "data": "type=coffee&order=cappuccino",
+                        "displayText": "卡布奇諾"
+                      },
+                      "height": "sm"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "拿鐵",
+                        "data": "type=coffee&order=latte",
+                        "displayText": "拿鐵"
+                      },
+                      "height": "sm"
+                    }
+                  ],
+                  "flex": 0
                 }
             }
-        })
-    }
-    if(message.text === 'Americano' || message.text === 'Cappuccino' || message.text === 'Expresso'){
-        return client.replyMessage(replyToken, {
-            type: 'flex',
-            altText: 'Second flex message',
-            contents: {
-                "type": "bubble",
-                "body": {
-                    "type": "box",
-                    "layout": "vertical",
-                    "contents": [
-                        {
-                            "type": "text",
-                            "text": `Are you sure you want a cup of ${message.text}?`
-                        }
-                    ],
-                    "height": "100px"
-                },
-                "footer": {
-                    "type": "box",
-                    "layout": "horizontal",
-                    "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "message",
-                                "label": "Yes",
-                                "text": "Yes"
-                            }
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                                "type": "message",
-                                "label": "No",
-                                "text": "No"
-                            }
-                        }
-                    ]
-                }
-            }
-        })
-    }
-
-    if(message.text === 'Yes'){
-        return client.replyMessage(replyToken, {
-            type: 'text',
-            text: 'Thanks for your order!'
-        })
-    }else if(message.text === 'No'){
-        return client.replyMessage(replyToken, {
-            type: 'text',
-            text: 'Sorry, please try again!'
-        })
+        });
     }
     //default
     return client.replyMessage(replyToken, {
@@ -185,14 +224,236 @@ function handleText(message, replyToken) {
         text: message.text
     })
 }
-
-function handleSticker(message, replyToken) {
-    if(message.type === 'sticker' && message.packageId === '446' && message.stickerId === '1996'){
-        return client.replyMessage(replyToken, {
-            type: 'sticker',
-            packageId: '446',
-            stickerId: '1999'
+let coffee, sugar, ice;
+function handlePostback(postback, replytoken){
+    let params = new URLSearchParams(postback.data);
+    let data = Object.fromEntries(params);
+    console.log(data);
+    if(data.type === "coffee"){
+        if(data.order === "espresso"){
+            coffee = "濃縮咖啡";
+            return client.replyMessage(replytoken, {
+                type: 'flex',
+                altText: 'early-confirm',
+                contents: {
+                    "type": "bubble",
+                    "body": {
+                      "type": "box",
+                      "layout": "vertical",
+                      "contents": [
+                        {
+                          "type": "text",
+                          "text": `您確定要一杯${coffee}？`,
+                          "margin": "md"
+                        },
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "postback",
+                            "label": "是",
+                            "data": "type=confirm&confirm=yes",
+                            "displayText": "是"
+                          },
+                          "margin": "md"
+                        },
+                        {
+                          "type": "button",
+                          "action": {
+                            "type": "postback",
+                            "label": "否",
+                            "data": "type=confirm&confirm=no",
+                            "displayText": "否"
+                          }
+                        }
+                      ]
+                    }
+                  }
+            })
+        }else if(data.order === "americano"){
+            coffee = "美式咖啡";
+        }else if(data.order === "cappuccino"){
+            coffee = "卡布奇諾";
+        }else if(data.order === "latte"){
+            coffee = "拿鐵";
+        }
+        return client.replyMessage(replytoken, {
+            type: 'flex',
+            altText: 'sugar',
+            contents: {
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "請問您需要的甜度是？",
+                      "margin": "md"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "全糖",
+                        "data": "type=sugar&sugar=full",
+                        "displayText": "全糖"
+                      },
+                      "margin": "md"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "少糖",
+                        "data": "type=sugar&sugar=more"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "半糖",
+                        "data": "type=sugar&sugar=half",
+                        "displayText": "半糖"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "微糖",
+                        "data": "type=sugar&sugar=less",
+                        "displayText": "微糖"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "無糖",
+                        "data": "type=sugar&sugar=empty",
+                        "displayText": "無糖"
+                      }
+                    }
+                  ]
+                }
+            }
         })
+    }else if(data.type === "sugar"){
+        if(data.sugar === 'full'){
+            sugar = "全糖";
+        }else if(data.sugar === 'more'){
+            sugar = "少糖";
+        }else if(data.sugar === 'half'){
+            sugar = "半糖";
+        }else if(data.sugar === 'less'){
+            sugar = "微糖";
+        }else if(data.sugar === 'empty'){
+            sugar = "無糖";
+        }
+        return client.replyMessage(replytoken, {
+            type: 'flex',
+            altText: 'ice',
+            contents: {
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": "請問您需要的冰量？",
+                      "margin": "md"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "正常",
+                        "data": "type=ice&ice=normal",
+                        "displayText": "正常"
+                      },
+                      "margin": "md"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "少冰",
+                        "data": "type=ice&ice=less"
+                      }
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "去冰",
+                        "data": "type=ice&ice=empty",
+                        "displayText": "去冰"
+                      }
+                    }
+                  ]
+                }
+            }
+        })
+    }else if(data.type === "ice"){
+        if(data.ice === 'normal'){
+            ice = "正常";
+        }else if(data.ice === 'less'){
+            ice = "少冰";
+        }else if(data.ice === 'empty'){
+            ice = "去冰";
+        }
+        return client.replyMessage(replytoken, {
+            type: 'flex',
+            altText: 'confirm',
+            contents: {
+                "type": "bubble",
+                "body": {
+                  "type": "box",
+                  "layout": "vertical",
+                  "contents": [
+                    {
+                      "type": "text",
+                      "text": `您確定要一杯${coffee}, ${sugar}, ${ice}？`,
+                      "margin": "md",
+                      "size": "sm"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "是",
+                        "data": "type=confirm&confirm=yes",
+                        "displayText": "是"
+                      },
+                      "margin": "md"
+                    },
+                    {
+                      "type": "button",
+                      "action": {
+                        "type": "postback",
+                        "label": "否",
+                        "data": "type=confirm&confirm=no",
+                        "displayText": "否"
+                      }
+                    }
+                  ]
+                }
+            }
+        })
+    }else if(data.type === "confirm"){
+        if(data.confirm === "yes"){
+            return client.replyMessage(replytoken, {
+                type: 'text',
+                text: "謝謝您的訂購，歡迎再次光臨！"
+            })
+        }else if(data.confirm === "no"){
+            return client.replyMessage(replytoken, {
+                type: 'text',
+                text: "很抱歉，請再試一次"
+            })
+        }
     }
 }
 
@@ -204,23 +465,25 @@ function handleEvent(event) {
             switch(message.type) {
                 case 'text': 
                     return handleText(message, event.replyToken);
-                case 'sticker':
-                    return handleSticker(message, event.replyToken);
+            
                 default: 
                     throw new Error(`Unknown message: ${JSON.stringify(message)}`);
-            }
+            }    
+        case 'postback':
+            const postback = event.postback;
+            //console.log("handle postback");
+            return handlePostback(postback, event.replyToken);
         default: 
             throw new Error(`Unknown event: ${JSON.stringify(event)}`);
     }
 }
-
 
 //push api 
 setTimeout(()=> {
     let userId = 'U72efa756089afd624e0cf0e58aaa7a9d';
     client.pushMessage(userId, {
         type: 'text', 
-        text: '你好'
+        text: "歡迎光臨FRESH Cafe"
     })
 }, 3000);
 

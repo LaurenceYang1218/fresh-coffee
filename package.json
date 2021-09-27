@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@line/bot-sdk": "^7.4.0"
+    "@line/bot-sdk": "^7.4.0",
+    "querystring": "^0.2.1"
   }
 }
