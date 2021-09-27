@@ -2,8 +2,7 @@ const express = require('express');
 const line = require('@line/bot-sdk');
 const app = express();
 
-const channelAccessToken = 'iXcaBCMiKYOAe3HQDw1LfqP4xb8lzTyUDF2yYWRP/Kfz+CPVfkF5fSjaYYr3L1+9pXrIaCkVaVW+ACN7HE/2TjKJPiJLkcqYEGqJBp3ANqlpxIQ4DvUuC+k9zLe62oG0qPsRdPNI5Iq1B4667jF0AgdB04t89/1O/w1cDnyilFU=';
-const channelSecret = '8719bd21b50d0155ef79f2f3a7b8e18b';
+
 const config = {
     channelAccessToken: channelAccessToken,
     channelSecret: channelSecret
@@ -480,7 +479,6 @@ function handleEvent(event) {
 
 //push api 
 setTimeout(()=> {
-    let userId = 'U72efa756089afd624e0cf0e58aaa7a9d';
     client.pushMessage(userId, {
         type: 'text', 
         text: "歡迎光臨FRESH Cafe"
